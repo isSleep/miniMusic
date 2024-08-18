@@ -8,10 +8,9 @@ Page({
     this.fetchTopMV()
   },
   async fetchTopMV() {
-    const topVideo = await getTopMV()
+    const res = await getTopMV()
     this.setData({
-      videoList: topVideo
+      videoList: res.data.data
     })
-    console.log(this.data.videoList)
   }
 })
