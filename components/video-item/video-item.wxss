@@ -30,7 +30,9 @@
     padding-left: 36rpx;
     position: relative;
 }
-
+.info .duration {
+  margin-right: 15rpx;
+}
 .info .count::before {
   content: "";
   position: absolute;

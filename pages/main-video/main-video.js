@@ -1,5 +1,6 @@
 // pages/main-video/main-video.js
 import { getTopMV } from "../../services/video"
+
 Page({
   data: {
     videoList: [],
@@ -25,5 +26,20 @@ Page({
 
     // 2.如果有更多的数据, 再请求新的数据
     this.fetchTopMV()
+  },
+
+  async onPullDownRefresh() {
+    // 1.重置数据
+    this.setData({
+      videoList: [],
+      offset: 0,
+      hasMore: true
+    })
+
+    // 2.重新请求数据
+    await this.fetchTopMV()
+
+    // 3.停止下拉刷新
+    wx.stopPullDownRefresh()
   }
 })
