@@ -4,6 +4,8 @@
     <video-item 
       class="item"
       itemData="{{item}}"
+      bind:tap="onVideoItemTap"
+      data-item="{{item}}"
     />
   </block>
 </view>

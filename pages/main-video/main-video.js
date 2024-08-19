@@ -20,6 +20,7 @@ Page({
     this.data.hasMore = res.data.hasMore
   },
 
+  // 上拉加载更多
   onReachBottom() {
     // 1.判断是否有更多的数据
     if (!this.data.hasMore) return
@@ -28,6 +29,7 @@ Page({
     this.fetchTopMV()
   },
 
+  // 下拉刷新
   async onPullDownRefresh() {
     // 1.重置数据
     this.setData({
@@ -41,5 +43,15 @@ Page({
 
     // 3.停止下拉刷新
     wx.stopPullDownRefresh()
-  }
+  },
+
+  // 事件监听的方法
+  // onVideoItemTap(event) {
+  //   const item = event.currentTarget.dataset.item
+  //   wx.navigateTo({
+  //     url: `/pages/detail-video/detail-video?id=${item.id}`
+  //   })
+  // }
+
+
 })
