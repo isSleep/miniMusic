@@ -9,3 +9,12 @@ export function getTopMV(offset = 0,limit = 20) {
     }
   })
 }
+
+export function getMVUrl(id) {
+  return hyRequest.get({
+    url: "/mv/url",
+    data: {
+      id
+    }
+  })
+}

@@ -1,2 +1,8 @@
 <!-- pages/detail-video/detail-video.wxml -->
-<text>{{id}}</text>
+<video 
+  class="video" 
+  src="{{mvUrl}}" 
+  autoplay
+  danmu-list="{{danmuList}}" 
+  referrer-policy="origin"
+/>
