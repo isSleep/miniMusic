@@ -1,9 +1,11 @@
 // pages/detail-video/detail-video.js
-import { getMVUrl } from "../../services/video"
+import { getMVUrl, getMVDetail, getMVrelated } from "../../services/video"
 Page({
   data: {
     id: 0,
     mvUrl: "",
+    mvInfo: {},
+    relatedVideo: [],
     danmuList:
     [{
       text: '第 1s 出现的弹幕',
@@ -21,6 +23,8 @@ Page({
     this.setData({ id })
 
     this.fetchMVUrl()
+    this.fetchMVDetail()
+    this.fetchMVrelated()
   },
 
   async fetchMVUrl() {
@@ -28,7 +32,19 @@ Page({
     this.setData({
       mvUrl: res.data.data.url
     })
-  }
+  },
+  async fetchMVDetail() {
+    const res = await getMVDetail(this.data.id);
+    this.setData({
+      mvInfo: res.data.data
+    })
+  },
+  async fetchMVrelated() {
+    const res = await getMVrelated(this.data.id);
+    this.setData({
+      relatedVideo: res.data.data
+    })
+  },
 
   
 })

@@ -18,3 +18,25 @@ export function getMVUrl(id) {
     }
   })
 }
+
+// 获取mv数据
+export function getMVDetail(mvid) {
+  return hyRequest.get({
+    url: "/mv/detail",
+    data: {
+      mvid
+    }
+  })
+}
+
+
+// 相关视频
+export function getMVrelated(id) {
+  return hyRequest.get({
+    url: "/related/allvideo",
+    data: {
+      id
+    }
+  })
+}
+
