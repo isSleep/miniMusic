@@ -13,13 +13,15 @@
   class="banner"
   circular
   indicator-dots
+  style="height: {{bannerHeight}}px;"
 >
   <block wx:for="{{banners}}" wx:key="targetId">
     <swiper-item class="item">
       <image 
-        class="image" 
+        class="banner-image" 
         src="{{item.imageUrl}}" 
-        mode="aspectFill"
+        mode="widthFix"
+        bindload="onBannerImageLoad"
       />
     </swiper-item>
   </block>
